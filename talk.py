@@ -18,7 +18,7 @@ with open("data.pickle", "rb") as f:
     words, labels = pickle.load(f)
 
 model=keras.models.load_model("Initial_model")
-model.summary()
+#model.summary()
 
 def bag_of_words(s,words):
     bag =[0 for _ in range(len(words))]
@@ -44,11 +44,26 @@ def chat():
         results_index=numpy.argmax(results)
         tag = labels[results_index]
 
+        if results[0][results_index] > 0.7:
+            for tg in data["intents"]:
+                if tg["tag"]==tag:
+                    responses = tg["responses"]
+                    print(random.choice(responses))
+        else:
+            print("I didn't get that, try asking a ralevant question.")
+        
+def chatbot_response(msg):
+    results = model.predict([bag_of_words(msg, words)])
+    results_index=numpy.argmax(results)
+    tag = labels[results_index]
+
+    if results[0][results_index] > 0.7:
         for tg in data["intents"]:
             if tg["tag"]==tag:
                 responses = tg["responses"]
-        
-        print(random.choice(responses))
+                return random.choice(responses)
+    else:
+        return "I didn't get that, try asking a relevant question."
 
 
-chat()
+#chat()
