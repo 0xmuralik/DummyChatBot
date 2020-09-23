@@ -9,6 +9,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 import random
 import json
+import pickle
 
 with open("intents.json") as file:
     data = json.load(file)
@@ -28,7 +29,7 @@ for intent in data["intents"]:
     if intent["tag"] not in lables:
         lables.append(intent["tag"])
 
-words =[stemmer.stem(w.lower()) for w in words if w not in "?"]
+words =[stemmer.stem(w.lower()) for w in words if w != "?"]
 words=sorted(list(set(words)))
 
 lables=sorted(lables)
@@ -58,7 +59,6 @@ training=numpy.array(training)
 output=numpy.array(output)
 
 
-
 model= Sequential()
 
 model.add(Dense(8, input_shape=(len(training[0]),)))
@@ -69,6 +69,9 @@ model.compile(optimizer="sgd",loss="categorical_crossentropy")
 
 model.summary()
 
-model.fit(x=training,y=output,batch_size=8,epochs=2000)
+model.fit(x=training,y=output,batch_size=8,epochs=1000)
 
 model.save("Initial_model")
+
+with open("data.pickle", "wb") as f:
+        pickle.dump((words, lables), f)
