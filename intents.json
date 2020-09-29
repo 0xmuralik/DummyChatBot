@@ -1,7 +1,7 @@
 {"intents": [
     {"tag": "greeting",
      "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
-     "responses": ["Hello!", "Good to see you again!", "Hi there, how can I help?"],
+     "responses": ["Good to see you!", "How can I help?"],
      "context_set": ""
     },
     {"tag": "goodbye",
@@ -10,14 +10,24 @@
      "context_set": ""
     },
     {"tag": "age",
-     "patterns": ["how old", "how old is tim", "what is your age", "how old are you", "age?"],
-     "responses": ["I am 18 years old!", "18 years young!"],
+     "patterns": ["how old", "how old is emma", "what is your age", "how old are you", "age?"],
+     "responses": ["I am 1 day old!"],
      "context_set": ""
     },
     {"tag": "name",
      "patterns": ["what is your name", "what should I call you", "whats your name?"],
-     "responses": ["You can call me Tim.", "I'm Tim!", "I'm Tim aka Tech With Tim."],
+     "responses": ["You can call me Emma.", "I'm Emma. Spelt MMA(Master-Machine Assistance).", "I'm Emma aka MMA(Master-Machine Assistance)."],
      "context_set": ""
+    },
+    {"tag": "google",
+    "patterns": ["take me to google", "give me the link to google home", "redirect to google","i want to google","google"],
+    "responses": ["here's the page <a href ='https://www.google.com' target='_blank'>google</a>"],
+    "context_set": ""
+    },
+    {"tag": "hrsoft",
+    "patterns": ["take me to hrsoft", "give me the link to hrsoft home", "redirect to hrsoft","i want to work on hrsoft","hrsoft"],
+    "responses": ["here's the page <a href ='https://tcc1902-uat.hrsoft.com/content/portal/tccserver/loadApp.htm?wizinstanceid=C1ADF74F-08C7-4E40-8321-ED6CC20280CB&paramloadpage=%26componentmode%3Dtrue%26mode%3DRUN%26wizinstanceid%3DEC67D229-C990-46CF-BE1C-321FAC4228FC' target='_blank'>hrsoft</a>"],
+    "context_set": ""
     },
     {"tag": "shop",
      "patterns": ["Id like to buy something", "whats on the menu", "what do you reccommend?", "could i get something to eat"],

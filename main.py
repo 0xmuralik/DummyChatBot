@@ -69,7 +69,7 @@ model.compile(optimizer="sgd",loss="categorical_crossentropy")
 
 model.summary()
 
-model.fit(x=training,y=output,batch_size=8,epochs=1000)
+model.fit(x=training,y=output,batch_size=8,epochs=2000)
 
 model.save("Initial_model")
 
