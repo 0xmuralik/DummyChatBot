@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from talk import chatbot_response
-
+import requests
  
 app = Flask(__name__)
 

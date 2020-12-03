@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1 class="jumbotron text-center">Master-Machine Assistance(MMA/EMMA)</h1>
-<div class="container">
+    <div class="container">
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
             <div id="chatbox" class="border border-success">
@@ -29,7 +29,7 @@
         $("#chatbox").append(userHtml);
         document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
         $.get("/get", { msg: userText }).done(function(data) {
-        var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+        var botHtml = '<p class="botText" ><span>' + data + '</span></p>';
         $("#chatbox").append(botHtml);
         document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
 });

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo">test</p>
+<p id="response" onload="weather()"></p>
+<script>
+    function weather(){
+        const response =fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=038b8b7cf63b79fa7a4f98c4665ed227');
+        const myJson = response.json(); 
+        document.getElementById("demo").innerHTML=myJson['weather'][0]['description'];
+    }
+</script>
+
+</body>
+</html>
